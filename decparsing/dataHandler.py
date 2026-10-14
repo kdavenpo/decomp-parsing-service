@@ -46,7 +46,7 @@ class DataHandler:
             raise ValueError(f"level {level} is not in ['class', 'method']")
         classes = methods = None
         for file_name in ["interactions", "calls", "tfidf", "word_count"]:
-            if not self.output_path and not os.path.exists(
+            if not self.output_path or not os.path.exists(
                     os.path.join(self.output_path, self.app_name, "{}_{}.{}".format(level, file_name,
                                                                                     Format.Name(self.format).lower()))
             ):
